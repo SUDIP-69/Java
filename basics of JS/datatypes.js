@@ -30,7 +30,7 @@ console.log(typeof undefined); // undefined
 console.log(typeof null); // object
 */
 
-//  Primitive
+//  +++++++++++++++++++++++++++++++++++++++++++++ Primitive ++++++++++++++++++++++++++++++++++
 
 //  7 types : String, Number, Boolearn, null, undefined, Symbol, BigInt
 
@@ -47,7 +47,7 @@ const bigNumber = 3456543576654356754n
 
 
 
-// Reference (Non primitive)
+// ++++++++++++++++++++++++++++++++ Reference (Non primitive) ++++++++++++++++++++++++++++++++++++++++
 
 // Array, Objects, Functions
 
@@ -69,3 +69,25 @@ console.log(typeof userEmail);
 console.log(typeof bigNumber);
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Stack(Primitive goes here) ...................... Heap(Non-Primitive goes here)
+*/
+
+let gameName = "Merlin"
+let anotherName = gameName      // another space is created in the stack memory; the value in the gameName variable doesn't change on re-assigning anotherName variable with a new value as the value of gameName was just copied
+
+let user1 = {
+    email: "sudip2311@gmail.com",
+    password: "sudip2311",
+    userId: 21224,
+}
+
+console.log(user1);
+
+let user2 = user1
+user2.password = "asdf1234"
+
+console.log(user1); //the user object is created in heap and is accessed by both user1, user2 so any change made in user2 is reflected in user1 also
+console.log(user2);
