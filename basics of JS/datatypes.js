@@ -91,3 +91,7 @@ user2.password = "asdf1234"
 
 console.log(user1); //the user object is created in heap and is accessed by both user1, user2 so any change made in user2 is reflected in user1 also
 console.log(user2);
+
+let value=42
+value="sudip"
+console.log(typeof value)
