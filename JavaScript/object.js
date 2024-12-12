@@ -97,7 +97,7 @@ users[1].email
 
 
 const course = {
-    coursename: "js in hindi",
+    coursename: "OOP in Python",
     price: "999",
     courseInstructor: "sudip"
 }
@@ -111,7 +111,7 @@ console.log(instructor);
 
 // {
 //     "name": "sudip",
-//     "coursename": "js in hindi",
+//     "coursename": "OOP in Python",
 //     "price": "free"
 // }
 
