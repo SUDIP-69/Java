@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Language</title>
+</head>
+<body style="background-color: #212121; color: blanchedalmond; font-weight: bold; font-size: x-large;">
+    <ul class="language">
+        <li>JavaScript</li>
+        <li>Python</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName)
+    {
+        const li = document.createElement('li')
+        li.innerHTML = langName
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addLanguage("TypeScript")
+
+// eta optimized approach karon ager process e puro tree traverse kore tarpor node ta add hochilo; 2nd approach a puro tree traverse korte hoche na
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage('golang')
+
+</script>
+</html>
