@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #stylingDiv {
+        font-size: x-large;
+        background-color: whitesmoke;
+        padding: 2%;
+        border-radius: 20px;
+        opacity: 80%; 
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stylingDiv">
+      <div style="opacity: 100%">
+        Click this button to change background color
+      </div>
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+    </div>
+  </body>
+  <script>
+    const randomColor = function () {
+      const hex = "1234567890ABCDEF";
+      let clr = "#";
+      for (let i = 0; i < 6; i++) clr += hex[Math.floor(Math.random() * 16)];
+
+      return clr;
+    };
+
+    let e;
+
+    document.querySelector("#start").addEventListener("click", function () {
+      if (!e) {
+        e = setInterval(() => {
+          document.querySelector("body").style.backgroundColor = randomColor();
+          // console.log(randomColor());
+        }, 500);
+      }
+
+      document.querySelector("#stop").addEventListener("click", function () {
+        // console.log('STOPPED');
+        clearInterval(e);
+        e = null; //null korle memory clear hoye jai r bar bar value rewrite korte hobe na space complexity better hoi
+      });
+    });
+  </script>
+</html>
