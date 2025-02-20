@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title={product.Product_Name__c} icon-name="standard:product">
+        <p class="slds-p-horizontal_small">
+            <strong>Category:</strong> {product.Category__c}
+        </p>
+        <p class="slds-p-horizontal_small">
+            <strong>Score:</strong> {product.Score__c}
+        </p>
+        <lightning-button 
+            label="Recalculate Score" 
+            variant="brand" 
+            onclick={handleRecalculate}>
+        </lightning-button>
+    </lightning-card>
+</template>

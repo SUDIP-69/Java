@@ -1,0 +1,41 @@
+<template>
+    <section role="dialog" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <h2 class="slds-text-heading_medium">Account Details</h2>
+                <lightning-button-icon icon-name="utility:close" variant="bare-inverse" alternative-text="Close"
+                    onclick={closeModal}></lightning-button-icon>
+            </header>
+
+            <div class="slds-modal__content slds-p-around_medium">
+                <template if:true={account}>
+                    <p><strong>Name:</strong> {account.Name}</p>
+                    <p><strong>Employees:</strong> {account.NumberOfEmployees}</p>
+                    <p><strong>Type:</strong> {account.Type}</p>
+
+                    <h3 class="slds-m-top_medium">Related Contacts</h3>
+                    <template if:true={contactList}>
+                        <lightning-datatable 
+                            key-field="Id"
+                            data={contactList}
+                            columns={contactColumns}
+                            hide-checkbox-column>
+                        </lightning-datatable>
+                    </template>
+                    <template if:false={contactList}>
+                        <p>No contacts found for this account.</p>
+                    </template>
+                </template>
+                <template if:false={account}>
+                    <lightning-spinner alternative-text="Loading" size="x-small"></lightning-spinner>
+                </template>
+            </div>
+
+            <footer class="slds-modal__footer">
+                <lightning-button label="Close" onclick={closeModal}></lightning-button>
+            </footer>
+        </div>
+    </section>
+
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

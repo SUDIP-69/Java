@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Account List">
+        <lightning-datatable 
+            key-field="Id"
+            data={paginatedAccounts}
+            columns={columns}
+            hide-checkbox-column="true"
+            onrowaction={handleRowAction}>
+        </lightning-datatable>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <lightning-button label="Previous" onclick={handlePrevious} disabled={isFirstPage}></lightning-button>
+            <span> Page {currentPage} of {totalPages} </span>
+            <lightning-button label="Next" onclick={handleNext} disabled={isLastPage}></lightning-button>
+        </div>
+    </lightning-card>
+
+    <!-- Child Component for Modal (Only Shows When recordId is Set) -->
+    <template if:true={showModal}>
+        <c-account-detail-modal account-id={selectedAccountId} onclose={handleCloseModal}></c-account-detail-modal>
+    </template>
+</template>
